@@ -46,130 +46,130 @@ export default function Page(){
 
 
 // object to render
-//     const loader = new GLTFLoader();
-//     const dracoLoader = new DRACOLoader();
-//     dracoLoader.setDecoderPath('draco/'); 
-//     loader.setDRACOLoader(dracoLoader);
-//     const orbitGroup = new THREE.Group();
-//     const spinTl = gsap.timeline({repeat : -1})
-//     scene.add(orbitGroup);
+    const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('draco/'); 
+    loader.setDRACOLoader(dracoLoader);
+    const orbitGroup = new THREE.Group();
+    const spinTl = gsap.timeline({repeat : -1})
+    scene.add(orbitGroup);
 
         
-//         loader.load('/images/shoe.glb', (gltf) => {
-//             const model = gltf.scene;
+        loader.load('/images/shoe.glb', (gltf) => {
+            const model = gltf.scene;
 
-//             model.scale.set(1,1,1);
-//             model.position.set(0,0,0.5);
-//             model.rotation.set(0,Math.PI * 0.5,Math.PI * 0.3);
+            model.scale.set(1,1,1);
+            model.position.set(0,0,0.5);
+            model.rotation.set(0,Math.PI * 0.5,Math.PI * 0.3);
 
-//             scene.add(model);
+            scene.add(model);
 
-//             const textureLoader = new THREE.TextureLoader();
-//             const newTexture = textureLoader.load('images/texture_green.webp');
-//                     newTexture.flipY = false;
-//                     newTexture.colorSpace = THREE.SRGBColorSpace;
-//                     renderer.outputColorSpace = THREE.SRGBColorSpace;
-//                 model.traverse((child) => {
-//                 if (child.isMesh) {
-//                     child.material = child.material.clone(); // IMPORTANT
-//                     child.material.map = newTexture;
-//                     child.material.needsUpdate = true;
-//                 }
-//             });
+            const textureLoader = new THREE.TextureLoader();
+            const newTexture = textureLoader.load('images/texture_green.webp');
+                    newTexture.flipY = false;
+                    newTexture.colorSpace = THREE.SRGBColorSpace;
+                    renderer.outputColorSpace = THREE.SRGBColorSpace;
+                model.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = child.material.clone(); // IMPORTANT
+                    child.material.map = newTexture;
+                    child.material.needsUpdate = true;
+                }
+            });
 
 
-//         orbitGroup.add(model); 
+        orbitGroup.add(model); 
 
-//         },undefined,
-//   (error) => {
-//     console.error("GLB LOAD ERROR:", error);
-//   });
+        },undefined,
+  (error) => {
+    console.error("GLB LOAD ERROR:", error);
+  });
 
-//         loader.load('images/shoe.glb', (gltf) => {
-//             const model = gltf.scene;
+        loader.load('images/shoe.glb', (gltf) => {
+            const model = gltf.scene;
 
-//             model.scale.set(1,1,1);
-//             model.position.set(0.5,0,0);
-//             model.rotation.set(0,Math.PI * 1,Math.PI * 0.3);
+            model.scale.set(1,1,1);
+            model.position.set(0.5,0,0);
+            model.rotation.set(0,Math.PI * 1,Math.PI * 0.3);
 
-//             scene.add(model);
+            scene.add(model);
 
-//             const textureLoader = new THREE.TextureLoader();
-//             const newTexture = textureLoader.load('images/texture_blue.webp');
+            const textureLoader = new THREE.TextureLoader();
+            const newTexture = textureLoader.load('images/texture_blue.webp');
 
-//             // very important to load  texture right not reversed and colors not washed
-//                     newTexture.flipY = false;
-//                     newTexture.colorSpace = THREE.SRGBColorSpace;
-//                     renderer.outputColorSpace = THREE.SRGBColorSpace;
-//                 model.traverse((child) => {
-//                 if (child.isMesh) {
-//                     child.material = child.material.clone(); // IMPORTANT
-//                     child.material.map = newTexture;
-//                     child.material.needsUpdate = true;
-//                 }
-//             });
-//             orbitGroup.add(model);
-//         });
+            // very important to load  texture right not reversed and colors not washed
+                    newTexture.flipY = false;
+                    newTexture.colorSpace = THREE.SRGBColorSpace;
+                    renderer.outputColorSpace = THREE.SRGBColorSpace;
+                model.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = child.material.clone(); // IMPORTANT
+                    child.material.map = newTexture;
+                    child.material.needsUpdate = true;
+                }
+            });
+            orbitGroup.add(model);
+        });
 
-//         loader.load('images/shoe.glb', (gltf) => {
-//             const model = gltf.scene;
+        loader.load('images/shoe.glb', (gltf) => {
+            const model = gltf.scene;
 
-//             model.scale.set(1,1,1);
-//             model.position.set(0,0,-0.5);
-//             model.rotation.set(0,Math.PI * 1.5,Math.PI * 0.3);
+            model.scale.set(1,1,1);
+            model.position.set(0,0,-0.5);
+            model.rotation.set(0,Math.PI * 1.5,Math.PI * 0.3);
 
-//             scene.add(model);
+            scene.add(model);
 
-//             const textureLoader = new THREE.TextureLoader();
-//             const newTexture = textureLoader.load('images/texture_brown.webp');
+            const textureLoader = new THREE.TextureLoader();
+            const newTexture = textureLoader.load('images/texture_brown.webp');
 
-//             // very important to load  texture right not reversed and colors not washed
-//                     newTexture.flipY = false;
-//                     newTexture.colorSpace = THREE.SRGBColorSpace;
-//                     renderer.outputColorSpace = THREE.SRGBColorSpace;
-//                 model.traverse((child) => {
-//                 if (child.isMesh) {
-//                     child.material = child.material.clone(); // IMPORTANT
-//                     child.material.map = newTexture;
-//                     child.material.needsUpdate = true;
-//                 }
-//             });
-//             orbitGroup.add(model);
-//         });
+            // very important to load  texture right not reversed and colors not washed
+                    newTexture.flipY = false;
+                    newTexture.colorSpace = THREE.SRGBColorSpace;
+                    renderer.outputColorSpace = THREE.SRGBColorSpace;
+                model.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = child.material.clone(); // IMPORTANT
+                    child.material.map = newTexture;
+                    child.material.needsUpdate = true;
+                }
+            });
+            orbitGroup.add(model);
+        });
 
-//                 loader.load('images/shoe.glb', (gltf) => {
-//             const model = gltf.scene;
+                loader.load('images/shoe.glb', (gltf) => {
+            const model = gltf.scene;
 
-//             model.scale.set(1,1,1);
-//             model.position.set(-0.5,0,0);
-//             model.rotation.set(0,Math.PI * 2,Math.PI * 0.3);
+            model.scale.set(1,1,1);
+            model.position.set(-0.5,0,0);
+            model.rotation.set(0,Math.PI * 2,Math.PI * 0.3);
 
-//             scene.add(model);
+            scene.add(model);
 
-//             const textureLoader = new THREE.TextureLoader();
-//             const newTexture = textureLoader.load('images/texture_red.webp');
+            const textureLoader = new THREE.TextureLoader();
+            const newTexture = textureLoader.load('images/texture_red.webp');
 
-//             // very important to load  texture right not reversed and colors not washed
-//                     newTexture.flipY = false;
-//                     newTexture.colorSpace = THREE.SRGBColorSpace;
-//                     renderer.outputColorSpace = THREE.SRGBColorSpace;
-//                 model.traverse((child) => {
-//                 if (child.isMesh) {
-//                     child.material = child.material.clone(); // IMPORTANT
-//                     child.material.map = newTexture;
-//                     child.material.needsUpdate = true;
-//                 }
-//             });
-//             orbitGroup.add(model);
-//         });
+            // very important to load  texture right not reversed and colors not washed
+                    newTexture.flipY = false;
+                    newTexture.colorSpace = THREE.SRGBColorSpace;
+                    renderer.outputColorSpace = THREE.SRGBColorSpace;
+                model.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = child.material.clone(); // IMPORTANT
+                    child.material.map = newTexture;
+                    child.material.needsUpdate = true;
+                }
+            });
+            orbitGroup.add(model);
+        });
 
-//         spinTl.to(orbitGroup.rotation,{
-//                 y:"+=" + Math.PI * 2,
-//                 // x:"+=" + Math.PI * 2,
-//                 duration:10,
-//                 ease: "none" 
-//                 // delay:2
-//         })
+        spinTl.to(orbitGroup.rotation,{
+                y:"+=" + Math.PI * 2,
+                // x:"+=" + Math.PI * 2,
+                duration:10,
+                ease: "none" 
+                // delay:2
+        })
 
 
 // mouse
