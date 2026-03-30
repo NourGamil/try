@@ -11,8 +11,6 @@ export default function Page(){
     const theRef = useRef(null);
 
     useEffect(()=>{
-            const timeout = setTimeout(() => {
-        if (!theRef.current) return;
     const width = theRef.current.clientWidth;
     const height = theRef.current.clientHeight;
 // scene
@@ -33,7 +31,6 @@ export default function Page(){
     // renderer.domElement.style.background = "blue";
         // renderer.setSize(width, height);
         theRef.current.appendChild( renderer.domElement );
-                console.log("Canvas added:", renderer.domElement);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.setClearColor(0x000000,1);
@@ -55,30 +52,6 @@ export default function Page(){
     scene.add(orbitGroup);
 
         
-        loader.load('/images/shoe.glb', (gltf) => {
-            const model = gltf.scene;
-
-            model.scale.set(1,1,1);
-            model.position.set(0,0,0.5);
-            model.rotation.set(0,Math.PI * 0.5,Math.PI * 0.3);
-
-            scene.add(model);
-
-            const textureLoader = new THREE.TextureLoader();
-            const newTexture = textureLoader.load('images/texture_green.webp');
-                    newTexture.flipY = false;
-                    newTexture.colorSpace = THREE.SRGBColorSpace;
-                    renderer.outputColorSpace = THREE.SRGBColorSpace;
-                model.traverse((child) => {
-                if (child.isMesh) {
-                    child.material = child.material.clone(); // IMPORTANT
-                    child.material.map = newTexture;
-                    child.material.needsUpdate = true;
-                }
-            });
-        orbitGroup.add(model); 
-        });
-
         loader.load('images/shoe.glb', (gltf) => {
             const model = gltf.scene;
 
@@ -157,6 +130,32 @@ export default function Page(){
             orbitGroup.add(model);
         });
 
+                        loader.load('images/shoe.glb', (gltf) => {
+            const model = gltf.scene;
+
+            model.scale.set(1,1,1);
+            model.position.set(0,0,0.5);
+            model.rotation.set(0,Math.PI * 0.5,Math.PI * 0.3);
+
+            scene.add(model);
+
+            const textureLoader = new THREE.TextureLoader();
+            const newTexture = textureLoader.load('images/texture_green.webp');
+
+            // very important to load  texture right not reversed and colors not washed
+                    newTexture.flipY = false;
+                    newTexture.colorSpace = THREE.SRGBColorSpace;
+                    renderer.outputColorSpace = THREE.SRGBColorSpace;
+                model.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = child.material.clone(); // IMPORTANT
+                    child.material.map = newTexture;
+                    child.material.needsUpdate = true;
+                }
+            });
+            orbitGroup.add(model);
+        });
+
         spinTl.to(orbitGroup.rotation,{
                 y:"+=" + Math.PI * 2,
                 // x:"+=" + Math.PI * 2,
@@ -205,22 +204,13 @@ export default function Page(){
     };
     animate()
 
-console.log(renderer.info.render);
-renderer.domElement.style.background = "red";
-    }, 100); // 👈 important for mobile
-
-    return () => clearTimeout(timeout);
-    
     },[])
 
     return(
         <>
 
-        <div ref={theRef} className="bg-amber-400" style={{ width: "100%", height: "100dvh" }}>
+        <div ref={theRef} className="" style={{ width: "100%", height: "100dvh" }}>
             
-        </div>
-        <div className="w-[100px] h-[100px] bg-amber-600">
-            <p></p>
         </div>
         </>
     )
