@@ -76,14 +76,8 @@ export default function Page(){
                     child.material.needsUpdate = true;
                 }
             });
-
-
         orbitGroup.add(model); 
-
-        },undefined,
-  (error) => {
-    console.error("GLB LOAD ERROR:", error);
-  });
+        });
 
         loader.load('images/shoe.glb', (gltf) => {
             const model = gltf.scene;
